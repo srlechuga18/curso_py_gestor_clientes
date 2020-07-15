@@ -1,8 +1,8 @@
 """ fichero principal del programa """
+import menu
 
 def main():
-    #TODO: mostrar menu
-    pass
+    menu.loop()
 
 if __name__ == "__main__":
     main()
