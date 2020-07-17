@@ -24,10 +24,10 @@ def find():
 
     dni = input("Introduce el DNI del cliente\n> ")
 
-    for client in clients:
+    for i, client in enumerate(clients):
         if client['dni'] == dni:
             show(client)
-            return client
+            return i, client
 
     print("No se ha encontrado ningún cliente con ese DNI")
 
@@ -75,32 +75,27 @@ def add():
 
 def edit():
 
-    dni = input("Introduce el DNI del cliente\n> ")
+    i, client = find()
 
-    for i, client in enumerate(clients):
+    if client:
 
-        if client['dni'] == dni:
+        print(f"Introduce nuevo nombre ({client['nombre']})")
+        clients[i]['nombre'] = helpers.input_text(2, 30)
 
-            print(f"Introduce nuevo nombre ({client['nombre']})")
-            clients[i]['nombre'] = helpers.input_text(2, 30)
+        print(f"Introduce nuevo apellido ({client['apellido']})")
+        clients[i]['apellido'] = helpers.input_text(2, 30)
 
-            print(f"Introduce nuevo apellido ({client['apellido']})")
-            clients[i]['apellido'] = helpers.input_text(2, 30)
-
-            return True
+        return True
 
     return False
 
 def delete():
 
-    dni = input("Introduce el DNI del cliente\n> ")
+    i,client = find()
 
-    for i, client in enumerate(clients):
-
-        if client['dni'] == dni:
-            client = clients.pop(i)
-            show(client)
-            return True
+    if client:
+        client = clients.pop(i)
+        return True
 
     return False
 
