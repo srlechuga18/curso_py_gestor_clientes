@@ -90,7 +90,6 @@ def edit():
     return False
 
 def delete():
-
     i,client = find()
 
     if client:

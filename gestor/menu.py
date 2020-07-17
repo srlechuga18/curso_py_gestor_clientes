@@ -35,8 +35,8 @@ def loop():
 
     def delete(x):
         print(switch.get(x))
-        if manager.delete():
-            print("Cliente borrado correctamente\n")
+        manager.delete()
+        print("Cliente borrado correctamente\n")
 
     def out(x):
         print(switch.get(x))
