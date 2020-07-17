@@ -73,7 +73,36 @@ def add():
     clients.append(client)
     return client
 
+def edit():
 
+    dni = input("Introduce el DNI del cliente\n> ")
+
+    for i, client in enumerate(clients):
+
+        if client['dni'] == dni:
+
+            print(f"Introduce nuevo nombre ({client['nombre']})")
+            clients[i]['nombre'] = helpers.input_text(2, 30)
+
+            print(f"Introduce nuevo apellido ({client['apellido']})")
+            clients[i]['apellido'] = helpers.input_text(2, 30)
+
+            return True
+
+    return False
+
+def delete():
+
+    dni = input("Introduce el DNI del cliente\n> ")
+
+    for i, client in enumerate(clients):
+
+        if client['dni'] == dni:
+            client = clients.pop(i)
+            show(client)
+            return True
+
+    return False
 
 if __name__ == "__main__":
     import doctest

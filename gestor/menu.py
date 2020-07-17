@@ -30,9 +30,13 @@ def loop():
 
     def edit(x):
         print(switch.get(x))
+        if manager.edit():
+            print("Cliente modificado correctamente\n")
 
     def delete(x):
         print(switch.get(x))
+        if manager.delete():
+            print("Cliente borrado correctamente\n")
 
     def out(x):
         print(switch.get(x))
